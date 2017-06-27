@@ -1,30 +1,23 @@
-Lesson.destroy_all
-Section.destroy_all
 Chapter.destroy_all
 
-2.times do |index|
-  Chapter.create!(name: Faker::StarTrek.specie)
-end
+4.times do |index|
+  chapter = Chapter.create!(name: Faker::StarTrek.specie)
 
+  4.times do |index|
+     section = chapter.sections.create!(name: Faker::LordOfTheRings.location)
 
-5.times do |index|
-  Section.create!(name: Faker::LordOfTheRings.location,
-                  chapter_id: 1)
-end
-
-5.times do |index|
-  Section.create!(name: Faker::LordOfTheRings.location,
-                  chapter_id: 2)
-end
-
-40.times do |index|
-  Lesson.create!(name: Faker::StarWars.planet,
-                  content: Faker::StarWars.quote,
-                  number: 1,
-                  section_id: 1)
+     8.times do |index|
+       section.lessons.create!(name: Faker::StarWars.planet,
+                             content: Faker::StarWars.quote,
+                             number: Faker::Number.digit)
+     end
   end
+end
 
-p "Created #{Lesson.count} lessons"
+#how to create relationships with seed data
+
+
+p "Created #{Chapter.count} chapters"
 
 # once initially set up/to edit must run 'rake db:setup'
 # also 'rake db:test:prepare'
