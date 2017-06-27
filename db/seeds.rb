@@ -7,9 +7,14 @@ Chapter.destroy_all
 end
 
 
-10.times do |index|
+5.times do |index|
   Section.create!(name: Faker::LordOfTheRings.location,
                   chapter_id: 1)
+end
+
+5.times do |index|
+  Section.create!(name: Faker::LordOfTheRings.location,
+                  chapter_id: 2)
 end
 
 40.times do |index|
