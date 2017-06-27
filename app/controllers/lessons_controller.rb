@@ -26,25 +26,25 @@ class LessonsController < ApplicationController
   end
 
   def edit
-    @section = Section.find(params[:section_id])
     @lesson = Lesson.find(params[:id])
+    @section = @lesson.section
   end
 
   def update
     @section = Section.find(params[:section_id])
     @lesson = Lesson.find(params[:id])
     if @lesson.update(lesson_params)
-      redirect_to section_path(@lesson.section)
+      redirect_to chapter_path(@lesson.section.chapter)
     else
       render :edit
     end
   end
 
-  def destroy_all
-    @section = Section.find(params[:section_id])
+  def destroy
     @lesson = Lesson.find(params[:id])
-    @lesson.destroy_all
-    redirect_to section_path
+    @section = @lesson.section
+    @lesson.destroy
+    redirect_to chapter_path(@lesson.section.chapter)
   end
 
 private
