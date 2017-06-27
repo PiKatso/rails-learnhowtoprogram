@@ -6,4 +6,6 @@ Rails.application.routes.draw do
   resources :sections do
     resources :lessons
   end
+
+  root :to => 'chapters#index'
 end

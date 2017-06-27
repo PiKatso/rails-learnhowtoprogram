@@ -1,13 +1,5 @@
-<h1>Chapters</h1>
+<h1>Courses At Epicodus</h1>
 
 <% @chapters.each do |chapter| %>
-  <p><%= chapter.name %></p>
-  <% chapter.sections.each do |section| %>
-    <li><%= section.name %></li>
-      <% section.lessons.each do |lesson| %>
-        <ul>
-          <li><%= lesson.name %>, <em><%= lesson.content %></em></li>
-        </ul>
-      <% end %>
-  <% end %>
+  <p><%= link_to chapter.name, chapter_path(chapter) %></p>
 <% end %>

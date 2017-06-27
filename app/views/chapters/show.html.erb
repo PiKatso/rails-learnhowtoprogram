@@ -1,0 +1,9 @@
+<h1>Course: <%= @chapter.name %></h1>
+
+
+<h3>Weekly Sections Available:</h3>
+<ul>
+  <% @chapter.sections.each do |section| %>
+    <li><%= link_to section.name, chapter_section_path(section)%></li>
+  <% end %>
+</ul>
