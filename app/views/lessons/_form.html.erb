@@ -1,0 +1,12 @@
+
+<%= form_for [@section, @lesson] do |f| %>
+  <%= f.label :name %><br>
+  <%= f.text_field :name %><br>
+  <%= f.label :content %><br>
+  <%= f.text_field :content %><br>
+  <%= f.label :number %><br>
+  <%= f.text_field :number %><br>
+  <%= f.label :section_id %><br>
+  <%= f.collection_select :section_id, Section.order(:name), :id, :name, include_blank: true %><br>
+  <%= f.submit %><br>
+<% end %>

@@ -19,7 +19,7 @@ class LessonsController < ApplicationController
     @section = Section.find(params[:section_id])
     @lesson = @section.lessons.new(lesson_params)
     if @lesson.save
-      redirect_to lessons_path
+      redirect_to chapter_path(@lesson.section.chapter)
     else
       render :new
     end

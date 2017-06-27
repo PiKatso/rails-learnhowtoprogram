@@ -5,3 +5,5 @@
     <li><%= link_to lesson.name, section_lesson_path(@section, lesson) %></li>
   <% end %>
 </ul>
+
+<%= link_to 'Add Lesson', new_section_lesson_path(@section) %>
