@@ -1,10 +1,13 @@
 class LessonsController < ApplicationController
   def index
+    @section = Section.find(params[:id])
     @lessons = Lesson.all
   end
 
+  # passing in a parent object (above-> @section) in the view make this nesting work
   def show
-    @lesson = Lesson.find(params[:id])
+    @section = Section.find(params[:section_id])
+    @lesson = @section.lessons.find(params[:id])
   end
 
   def new

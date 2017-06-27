@@ -4,6 +4,6 @@
 <h3>Weekly Sections Available:</h3>
 <ul>
   <% @chapter.sections.each do |section| %>
-    <li><%= link_to section.name, chapter_section_path(section)%></li>
+    <li><%= link_to section.name, chapter_section_path(@chapter, section)%></li>
   <% end %>
 </ul>
